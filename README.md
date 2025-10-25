@@ -105,6 +105,40 @@ This project use code and concepts from other research work. If you use this cod
 
 <details>
 
+<summary><h4><b>UAV Navigation in Dense Forest</b></h4></summary>
+
+```
+@article{,
+  title={Autonomous UAV Navigation in Complex Environments},
+  author={sebnem-byte},
+  booktitle={},
+  pages={},
+  year={},
+  organization={}
+}
+```
+
+</details>
+
+<details>
+
+<summary><h4><b>Forest Generator for Gazebo</b></h4></summary>
+
+```
+@article{,
+  title={forest_gen},
+  author={hurkansah},
+  booktitle={},
+  pages={},
+  year={},
+  organization={}
+}
+```
+
+</details>
+
+<details>
+
 <summary><h4 align="center"><b>Fast, autonomous flight in GPS-denied and cluttered environments</b></h4></summary>
 
 ```
