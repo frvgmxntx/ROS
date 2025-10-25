@@ -22,29 +22,34 @@ Follow these instructions to set up the ROS environment and run the real-time YO
 * ROS Noetic
 * Python 3.8
 
-#### Python Libraries
+#### 🐍 Python Libraries
 
 * `ultralytics`
 * `opencv-python`
 * `ffmpeg`
 
-### 1. Workspace Setup (ROS)
+### 1. 📦 Workspace Setup (ROS)
 
 First, we need to build the catkin workspace with the required ROS packages.
 
 1. Create your catkin workspace folder structure:
+
 `mkdir -p catkin_ws/src/`
 
 2. Clone this repo:
+
 `git clone https://github.com/frvgmxntx/ROS`
 
 3. Move the `kr_autonomous_flight` folder into your `src` folder:
+
 `mv kr_autonomous_flight catkin_ws/src/`
 
 4. Add the MRS System repository:
+
 `curl https://ctu-mrs.github.io/ppa-stable/add_ppa.sh | bash`
 
 5. Install the MRS System:
+
 `apt install ros-noetic-mrs-uav-system-full`
 
 6. Go to the workspace root `catkin_ws` and configure the build:
@@ -54,11 +59,13 @@ catkin config --cmake-args -DCMAKE_BUILD_TYPE=releases
 ```
 
 7. Compile the workspace:
+
 `catkin build`
 
-### 2. Prepare the Detection Script
+### 2. 🛠️ Prepare the Detection Script
 
 1. Make the detection script `ROS/detection_ros.py` executable:
+
 `chmod +x detection_ros.py`
 
 Note: Edit the configuration header inside the script so all paths are correct.
@@ -66,22 +73,25 @@ Note: Edit the configuration header inside the script so all paths are correct.
 ### 3. 🏁 Running
 
 1. Open a terminal and source the workspace setup file:
+
 `source catkin_ws/devel/setup.bash`
 
 Note: There are other setup files for diffent shells.
 
 2. Launch the full simulation:
+
 `roslaunch gazebo_utils full_sim.launch`
 
 This should open Gazebo, RViz and a `rqt` command window.
 
 3. On a new terminal, source the workspace setup again then run the script:
+
 `python3 detection_ros.py`
 
 The `detection_ros.py` script will start processing the camera topic and record the result. To stop, simply press `CTRL+C` on the terminal.
 After running, the recording video file will be saved in the folder the script was executed.
 
-Note: For now, the coded used `mp4v` may not be compatible with some apps for sharing, to fix this you can reencode using `ffmpeg`:
+Note: For now, the codec used `mp4v` may not be compatible with some apps for sharing, to fix this you can reencode using `ffmpeg`:
 `ffmpeg -i RESULT_VIDEO_FILE.mp4 -c:v libx264 -crf 23 -an REENCODED_VIDEO_FILE.mp4`
 
 
