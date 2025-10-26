@@ -76,7 +76,7 @@ Note: Edit the configuration header inside the script so all paths are correct.
 
 `source catkin_ws/devel/setup.bash`
 
-Note: There are other setup files for diffent shells.
+Note: There are other setup files for different shells.
 
 2. Launch the full simulation:
 
@@ -92,13 +92,14 @@ The `detection_ros.py` script will start processing the camera topic and record 
 After running, the recording video file will be saved in the folder the script was executed.
 
 Note: For now, the codec used `mp4v` may not be compatible with some apps for sharing, to fix this you can reencode using `ffmpeg`:
+
 `ffmpeg -i RESULT_VIDEO_FILE.mp4 -c:v libx264 -crf 23 -an REENCODED_VIDEO_FILE.mp4`
 
 ## 🪜 Roadmap
 
 Planned features:
 - [x] Implement real-time YOLO detection on a ROS topic.
-- [ ] Show feed from image topic while running.
+- [ ] Show inference feed from image topic while running.
 - [ ] List usable camera sensors from `quadrotor` model.
 - [ ] Change codec for result video file.
 - [ ] Allow passing model and topic as parameters.
@@ -144,7 +145,7 @@ This project use code and concepts from other research work. If you use this cod
 
 <details>
 
-<summary><h4 align="center"><b>Fast, autonomous flight in GPS-denied and cluttered environments</b></h4></summary>
+<summary><h4><b>Fast, autonomous flight in GPS-denied and cluttered environments</b></h4></summary>
 
 ```
 @article{mohta2018experiments,
