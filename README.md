@@ -98,11 +98,11 @@ Note: For now, the codec used `mp4v` may not be compatible with some apps for sh
 
 Planned features:
 - [x] Implement real-time YOLO detection on a ROS topic.
-- [] Show feed from image topic while running.
-- [] List usable camera sensors from `quadrotor` model.
-- [] Change codec for result video file.
-- [] Allow passing model and topic as parameters.
-- [] Generate report after running.
+- [ ] Show feed from image topic while running.
+- [ ] List usable camera sensors from `quadrotor` model.
+- [ ] Change codec for result video file.
+- [ ] Allow passing model and topic as parameters.
+- [ ] Generate report after running.
 
 ## 📚 Acknowledgments and Citations
 
