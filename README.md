@@ -84,20 +84,25 @@ Note: There are other setup files for diffent shells.
 
 This should open Gazebo, RViz and a `rqt` command window.
 
-3. On a new terminal, source the workspace setup again then run the script:
+3. On a new terminal, source the workspace setup again then run the inference script on the `scripts` folder:
 
 `python3 detection_ros.py`
 
-The `detection_ros.py` script will start processing the camera topic and record the result. To stop, simply press `CTRL+C` on the terminal.
+The `detection_ros.py` script will start processing the camera topic and record the result. To stop, simply press `Ctrl+c` on the terminal.
 After running, the recording video file will be saved in the folder the script was executed.
 
 Note: For now, the codec used `mp4v` may not be compatible with some apps for sharing, to fix this you can reencode using `ffmpeg`:
 `ffmpeg -i RESULT_VIDEO_FILE.mp4 -c:v libx264 -crf 23 -an REENCODED_VIDEO_FILE.mp4`
 
+## 🪜 Roadmap
 
-
-
-
+Planned features:
+- [x] Implement real-time YOLO detection on a ROS topic.
+- [] Show feed from image topic while running.
+- [] List usable camera sensors from `quadrotor` model.
+- [] Change codec for result video file.
+- [] Allow passing model and topic as parameters.
+- [] Generate report after running.
 
 ## 📚 Acknowledgments and Citations
 
