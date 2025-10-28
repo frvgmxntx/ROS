@@ -11,8 +11,13 @@
 
 </div>
 
+<details>
+
+<summary>
 
 ## 🚀 Setup
+
+</summary>
 
 Follow these instructions to set up the ROS environment and run the real-time YOLO detection node.
 
@@ -76,7 +81,7 @@ Note: Edit the configuration header inside the script so all paths are correct.
 
 `source catkin_ws/devel/setup.bash`
 
-Note: There are other setup files for different shells.
+Note: There are other setup files for diffent shells.
 
 2. Launch the full simulation:
 
@@ -92,14 +97,19 @@ The `detection_ros.py` script will start processing the camera topic and record 
 After running, the recording video file will be saved in the folder the script was executed.
 
 Note: For now, the codec used `mp4v` may not be compatible with some apps for sharing, to fix this you can reencode using `ffmpeg`:
-
 `ffmpeg -i RESULT_VIDEO_FILE.mp4 -c:v libx264 -crf 23 -an REENCODED_VIDEO_FILE.mp4`
+
+</details>
+
+## 🤖 YOLO
+
+Instructions on how to fine-tune a model are on `train/README.md`
 
 ## 🪜 Roadmap
 
 Planned features:
 - [x] Implement real-time YOLO detection on a ROS topic.
-- [ ] Show inference feed from image topic while running.
+- [ ] Show feed from image topic while running.
 - [ ] List usable camera sensors from `quadrotor` model.
 - [ ] Change codec for result video file.
 - [ ] Allow passing model and topic as parameters.
@@ -113,16 +123,7 @@ This project use code and concepts from other research work. If you use this cod
 
 <summary><h4><b>UAV Navigation in Dense Forest</b></h4></summary>
 
-```
-@article{,
-  title={Autonomous UAV Navigation in Complex Environments},
-  author={sebnem-byte},
-  booktitle={},
-  pages={},
-  year={},
-  organization={}
-}
-```
+[github](https://github.com/sebnem-byte/UAV-Navigation-in-Dense-Forest/tree/main)
 
 </details>
 
@@ -130,22 +131,15 @@ This project use code and concepts from other research work. If you use this cod
 
 <summary><h4><b>Forest Generator for Gazebo</b></h4></summary>
 
-```
-@article{,
-  title={forest_gen},
-  author={hurkansah},
-  booktitle={},
-  pages={},
-  year={},
-  organization={}
-}
-```
+[github](https://github.com/hurkansah/forest_gen)
 
 </details>
 
 <details>
 
-<summary><h4><b>Fast, autonomous flight in GPS-denied and cluttered environments</b></h4></summary>
+<summary><h4 align="center"><b>Fast, autonomous flight in GPS-denied and cluttered environments</b></h4></summary>
+
+[github](https://github.com/KumarRobotics/kr_autonomous_flight)
 
 ```
 @article{mohta2018experiments,
