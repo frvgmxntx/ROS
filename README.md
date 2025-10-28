@@ -17,9 +17,9 @@
 
 ## 🚀 Setup
 
-</summary>
-
 Follow these instructions to set up the ROS environment and run the real-time YOLO detection node.
+
+</summary>
 
 ### ⚙️ Requirements
 
