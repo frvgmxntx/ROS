@@ -43,7 +43,6 @@ class YoloROSDetector:
     def image_callback(self, msg):
         """function called everytime a new frame appears on the topic."""
         try:
-            # Converte a mensagem de Imagem ROS para um frame OpenCV (BGR)
             # convert ROS image frame (RGB) to OpenCV frame (BGR)
             cv_frame = self.bridge.imgmsg_to_cv2(msg, "bgr8")
             
@@ -56,7 +55,6 @@ class YoloROSDetector:
 
     # OpenCV video writer to save video result file
     def initialize_video_writer(self, frame):
-        """Inicializa o VideoWriter no primeiro frame."""
         h, w = frame.shape[:2]
         tamanho_frame = (w, h)
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
@@ -65,22 +63,21 @@ class YoloROSDetector:
 
     # main loop, run inference on each frame
     def run(self):
-        """Loop principal para processamento e salvamento (sem GUI)."""
         rate = rospy.Rate(RESULT_FPS) 
         
         while not rospy.is_shutdown():
-            frame_para_processar = None
+            frame_to_process = None
             
             with self.frame_lock:
                 if self.latest_frame is not None:
-                    frame_para_processar = self.latest_frame.copy()
+                    frame_to_process = self.latest_frame.copy()
 
-            if frame_para_processar is not None:
+            if frame_to_process is not None:
                 if self.video_out is None:
-                    self.initialize_video_writer(frame_para_processar)
+                    self.initialize_video_writer(frame_to_process)
 
                 # yolo prediction
-                resultado = self.model.predict(frame_para_processar, verbose=False)
+                resultado = self.model.predict(frame_to_process, verbose=False)
                 
                 # draw box
                 frame_com_caixas = resultado[0].plot()
@@ -93,7 +90,6 @@ class YoloROSDetector:
 
     # start shutdown after Ctrl-C
     def shutdown_hook(self):
-        """Chamado quando o nó recebe Ctrl-C."""
         rospy.loginfo("shutdown hook, saving file....")
         if self.video_out:
             self.video_out.release()
