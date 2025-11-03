@@ -105,6 +105,16 @@ Note: For now, the codec used `mp4v` may not be compatible with some apps for sh
 
 Instructions on how to fine-tune a model are on `train/README.md`
 
+<details> 
+  
+<summary>
+<h2> 🎬 Showcase </h2>
+</summary>
+
+Check `showcase` folder.
+
+</details>
+
 ## 🪜 Roadmap
 
 Planned features:
