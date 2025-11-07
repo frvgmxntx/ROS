@@ -1,5 +1,0 @@
-unity_command:
-  unity_setup:
-    Spawner:
-      scene: "Assets/FloodedGrounds.unity"
-
