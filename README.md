@@ -114,9 +114,48 @@ Helper scripts for various uses. Check the `scripts` folder.
 
 Main script to enable real-time object detection as a ROS node using yolo and opencv (cv_bridge).
 
+It will publish the real-time detection to the image topic `yolo/feed`, you can use ROS `image_view` to connect to it.
+
+The `kr_autonomous_flight` `full_sim.launch` scenario on gazebo will lauch a `rqt` window that has a image_view section to observe the `quadrotor` image topics. The following topics are exposed:
+
+- `/quadrotor/bonus_left/left`
+Left side of drone, left cam.
+
+- `/quadrotor/bonus_left/right`
+Left side of drone, right cam.
+
+- `/quadrotor/bonus_right/left`
+Right side of drone, left cam.
+
+- `/quadrotor/bonus_right/right`
+Right side of drone, right cam.
+
+- `/quadrotor/ovc3/left`
+Front side of drone, left cam.
+
+- `/quadrotor/ovc3/right`
+Front side of drone, right cam.
+
+- `/quadrotor/ovc3`
+Front side of drone, both cams.
+
+Those topics publish specific types:
+
+- `image_raw`
+Image as seem by cam, no color and uncompressed.
+
+- `image_raw/compressed`
+Same as above, less quality but less data stream use.
+
+- `image_raw/compressedDepth
+Depth image (float32 pixels representing depth), compressed as above.
+
+- `image_raw/theora`
+Compressed image as a video stream, using the `theora` codec.
+
 ### split_dataset.py
 
-Split any video into frames, then create the yolo dataset structure.
+Split any video into frames, then create the yolo dataset structure with train, validation and test folders.
 
 </details>
 
@@ -138,10 +177,9 @@ Check `showcase` folder.
 
 Planned features:
 - [x] Implement real-time YOLO detection on a ROS topic.
-- [ ] Show feed from image topic while running.
-- [ ] List usable camera sensors from `quadrotor` model.
-- [ ] Change codec for result video file.
-- [ ] Allow passing model and topic as parameters.
+- [x] Show feed from image topic while running.
+- [x] List usable camera sensors from `quadrotor` model. See `Scripts` section.
+- [x] Allow passing model and topic as parameters.
 - [ ] Generate report after running.
 
 ## 📚 Acknowledgments and Citations
