@@ -119,38 +119,49 @@ It will publish the real-time detection to the image topic `yolo/feed`, you can 
 The `kr_autonomous_flight` `full_sim.launch` scenario on gazebo will lauch a `rqt` window that has a image_view section to observe the `quadrotor` image topics. The following topics are exposed:
 
 - `/quadrotor/bonus_left/left`
+
 Left side of drone, left cam.
 
 - `/quadrotor/bonus_left/right`
+
 Left side of drone, right cam.
 
 - `/quadrotor/bonus_right/left`
+
 Right side of drone, left cam.
 
 - `/quadrotor/bonus_right/right`
+
 Right side of drone, right cam.
 
 - `/quadrotor/ovc3/left`
+
 Front side of drone, left cam.
 
 - `/quadrotor/ovc3/right`
+
 Front side of drone, right cam.
 
 - `/quadrotor/ovc3`
+
 Front side of drone, both cams.
 
 Those topics publish specific types:
 
 - `image_raw`
+
 Image as seem by cam, no color and uncompressed.
 
 - `image_raw/compressed`
+
 Same as above, less quality but less data stream use.
 
-- `image_raw/compressedDepth
+- `image_raw/compressedDepth`
+
 Depth image (float32 pixels representing depth), compressed as above.
 
 - `image_raw/theora`
+
 Compressed image as a video stream, using the `theora` codec.
 
 ### split_dataset.py
