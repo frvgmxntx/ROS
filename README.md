@@ -166,7 +166,7 @@ Compressed image as a video stream, using the `theora` codec.
 
 ### split_dataset.py
 
-Split any video into frames, then create the yolo dataset structure with train, validation and test folders.
+Split any video into frames, then create the yolo dataset structure with train, validation and test folders. (WIP)
 
 </details>
 
