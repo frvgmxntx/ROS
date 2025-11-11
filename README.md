@@ -100,7 +100,6 @@ Note: For now, the codec used `mp4v` may not be compatible with some apps for sh
 `ffmpeg -i RESULT_VIDEO_FILE.mp4 -c:v libx264 -crf 23 -an REENCODED_VIDEO_FILE.mp4`
 
 </details>
-
 <details>
 
 <summary>
@@ -111,11 +110,11 @@ Helper scripts for various uses. Check the `scripts` folder.
 
 </summary>
 
-## detection_ros.py
+### detection_ros.py
 
 Main script to enable real-time object detection as a ROS node using yolo and opencv (cv_bridge).
 
-## split_dataset.py
+### split_dataset.py
 
 Split any video into frames, then create the yolo dataset structure.
 
