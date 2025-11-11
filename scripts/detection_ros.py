@@ -7,10 +7,12 @@ import threading
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 from ultralytics import YOLO
+import sys
 
 # config header
 MODEL_PATH = 'test1.pt'            # path to pytorch .pt model
 ROS_IMAGE_TOPIC = '/quadrotor/ovc3/rgb' # ROS image topic to inference on
+ROS_YOLO_TOPIC = '/yolo/feed'
 RESULT_FILE = 'result.mp4' # result file
 RESULT_FPS = 30.0                      # FPS of result file
 
@@ -39,6 +41,8 @@ class YoloROSDetector:
         # subscriber
         self.image_sub = rospy.Subscriber(ROS_IMAGE_TOPIC, Image, self.image_callback)
         rospy.loginfo(f"subscribed {ROS_IMAGE_TOPIC}")
+
+        self.result_pub = rospy.Publisher(ROS_YOLO_TOPIC, Image, queue_size=10)
     
     def image_callback(self, msg):
         """function called everytime a new frame appears on the topic."""
@@ -80,11 +84,15 @@ class YoloROSDetector:
                 resultado = self.model.predict(frame_to_process, verbose=False)
                 
                 # draw box
-                frame_com_caixas = resultado[0].plot()
+                frame_bounding_box = resultado[0].plot()
 
                 # save frame
                 if self.video_out:
-                    self.video_out.write(frame_com_caixas)
+                    self.video_out.write(frame_bounding_box)
+
+                # publish result frame to yolo/feed
+                ros_image_msg = self.bridge.cv2_to_imgmsg(frame_bounding_box, "bgr8")
+                self.result_pub.publish(ros_image_msg)
              
             rate.sleep()
 
@@ -97,6 +105,11 @@ class YoloROSDetector:
 
 if __name__ == '__main__':
     try:
+        # get yolo model to use
+        if len(sys.argv) > 1:
+            MODEL_PATH = sys.argv[1]
+            # else use the default one (test1.pt)
+
         # start ROS node
         rospy.init_node('yolo_detector_node', anonymous=True)
         detector = YoloROSDetector()
