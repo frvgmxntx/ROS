@@ -190,7 +190,7 @@ Planned features:
 - [x] Implement real-time YOLO detection on a ROS topic.
 - [x] Show feed from image topic while running.
 - [x] List usable camera sensors from `quadrotor` model. See `Scripts` section.
-- [x] Allow passing model and topic as parameters.
+- [x] Allow passing model as a parameter.
 - [ ] Generate report after running.
 
 ## 📚 Acknowledgments and Citations
