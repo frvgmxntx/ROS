@@ -101,6 +101,26 @@ Note: For now, the codec used `mp4v` may not be compatible with some apps for sh
 
 </details>
 
+<details>
+
+<summary>
+
+## 📋 Scripts
+
+Helper scripts for various uses. Check the `scripts` folder.
+
+</summary>
+
+## detection_ros.py
+
+Main script to enable real-time object detection as a ROS node using yolo and opencv (cv_bridge).
+
+## split_dataset.py
+
+Split any video into frames, then create the yolo dataset structure.
+
+</details>
+
 ## 🤖 YOLO
 
 Instructions on how to fine-tune a model are on `train/README.md`
